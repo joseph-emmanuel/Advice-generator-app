@@ -1,11 +1,11 @@
 const getData = async () => {
-  const res = await fetch("https://api.adviceslip.com/advice");
-  const data = await res.json();
+  document.querySelector(".advice-number").innerHTML = "";
 
-  document.querySelector(
-    ".advice-number"
-  ).innerHTML = `Advice #${data.slip.id}`;
-  document.querySelector(".advice-text").innerHTML = `"${data.slip.advice}"`;
+  let i = 0;
+  let res = await fetch("https://api.adviceslip.com/advice");
+  let data = await res.json();
+  document.getElementById("anumber").innerHTML = `Advice #${data.slip.id}`;
+  document.getElementById("atext").innerHTML = `${data.slip.advice}`;
 };
 
 getData();
